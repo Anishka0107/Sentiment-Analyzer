@@ -6,7 +6,7 @@ from nltk.corpus import stopwords
 FILENAME = 'movie-pang02.csv'
 class NaiveBayes(object):
 
-    def train(csv_file):
+    def train(self, csv_file):
         data = pd.read_csv(csv_file)
         # data is a pandas DataFrame
 
