@@ -3,6 +3,7 @@ from collections import Counter
 import pandas as pd
 from nltk.corpus import stopwords
 import nltk
+from math import log
 
 FILENAME = 'movie-pang02.csv'
 class NaiveBayes(object):
@@ -46,3 +47,31 @@ class NaiveBayes(object):
             self.positiveCount[key] = self.positiveCount[key]/total_positive_words
         for key in self.negativeCount:
             self.negativeCount[key] = self.negativeCount[key]/total_negative_words
+
+
+    def test(self, text):
+        sentences = sent_tokenize(text)
+        allwords = list()
+        for sentence in sentences:
+            words = word_tokenize(sentence)
+            allwords.extend(words)
+        stop_words = set(stopwords.words('english'))
+        allwords = [word for word in allwords if word not in stop_words]
+        for word in allwords:
+            pos_class = self.total_positive_prob
+            neg_class = self.total_negative_prob
+            if self.positiveCount.get(word):
+                pos_class += log(self.positiveCount[word])
+                print("Positive Word {}".format(word))
+
+            if self.negativeCount.get(word):
+                neg_class += log(self.negativeCount[word])
+                print("Negative Word {}".format(word))
+
+        print("Positive: {}, Negative: {}".format(pos_class, neg_class))
+
+        if(pos_class > neg_class):
+            print("Positive Sentiment")
+        else:
+            print("Negative Sentiment")
+
