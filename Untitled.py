@@ -144,3 +144,36 @@ prob_neg=len(filtered_neg)/((len(filtered_pos)+len(filtered_neg))
 # In[49]:
 
 prob_neg=len(filtered_neg)/(len(filtered_pos)+len(filtered_neg))
+
+#below changes added by anshul
+ans = "you are very ugly idiot. I am unhappy. weather is bad, hating it." 
+print(ans)
+sentern = sent_tokenize(ans)  
+print(sentern)
+allword = []
+for s in sentern :
+    w=word_tokenize(s)
+    allword.extend(w)
+stop_words = set(stopwords.words('english'))
+
+allword = [d for d in allword if d not in stop_words]
+import math
+
+posprob=0
+
+negprob=0
+
+for x in allword:
+
+    if pos_ctr.get(x):
+
+        print(str(x) + " "+str(pos_ctr[x]))
+
+        posprob+=math.log(pos_ctr[x]/len(positive))  
+
+    if neg_ctr.get(x):
+
+        print(str(x) + " "+str(neg_ctr[x]))
+
+        negprob+=math.log(neg_ctr[x]/len(negative))    
+
