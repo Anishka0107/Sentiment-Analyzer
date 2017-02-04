@@ -2,6 +2,7 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 from collections import Counter
 import pandas as pd
 from nltk.corpus import stopwords
+import nltk
 
 FILENAME = 'movie-pang02.csv'
 class NaiveBayes(object):

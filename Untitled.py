@@ -1,74 +1,11 @@
-
-# coding: utf-8
-
-# In[1]:
-
 import pandas
-
-
-# In[2]:
-
-ls
-
-
-# In[3]:
-
-data = pandas.read_csv("movie-pang02.csv")
-
-
-# In[4]:
-
-data
-
-
-# In[ ]:
-
-
-
-
-# In[5]:
-
-type(data)
-
-
-# In[6]:
-
-import nltk
-
-
-# In[7]:
-
 from nltk.tokenize import sent_tokenize,word_tokenize
-
-
-# In[8]:
-
 from collections import Counter
 
 
-# In[9]:
-
-a=Counter([1,2,3,4,5])
-
-
-# In[10]:
-
-print(a)
-
-
-# In[11]:
-
+data = pandas.read_csv("movie-pang02.csv")
 data_pos = data[data["class"] == 'Pos']
 data_neg = data[data["class"] == 'Neg']
-
-
-# In[12]:
-
-print(data_pos)
-
-
-# In[13]:
-
 positive=[]
 negative=[]
 
@@ -207,14 +144,3 @@ prob_neg=len(filtered_neg)/((len(filtered_pos)+len(filtered_neg))
 # In[49]:
 
 prob_neg=len(filtered_neg)/(len(filtered_pos)+len(filtered_neg))
-
-
-# In[50]:
-
-prob_neg
-
-
-# In[ ]:
-
-
-
