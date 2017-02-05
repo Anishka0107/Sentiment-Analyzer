@@ -122,11 +122,11 @@ class NaiveBayes(object):
                 if self.sentimentCount[sentiment].get(word):
                     wordBayes[sentiment] += self.sentimentCount[sentiment][word]
 
-            max_sentiment = max(wordBayes.values())
-            for sentiment in self.classes:
-                if(wordBayes[sentiment] == max_sentiment):
-                    print(sentiment)
-                    break
+        max_sentiment = max(wordBayes.values())
+        for sentiment in self.classes:
+            if(wordBayes[sentiment] == max_sentiment)
+                print(sentiment)
+                break
             # if self.positiveCount.get(word):
                 # pos_class += log(self.positiveCount[word])
                 # print("Positive Word {}".format(word))
